@@ -1,5 +1,5 @@
 {
-  "name": "rand-string",
+  "name": "@amrsaber/rand-string",
   "version": "0.1.0",
   "description": "CLI tool that generates and outputs random string of choice",
   "main": "cli.js",
