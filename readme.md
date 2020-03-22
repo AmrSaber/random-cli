@@ -2,8 +2,10 @@
 Generates and prints a random string to terminal.
 
 ## Install
+Install the package globally to be able to use it in the terminal.
+
 ```bash
-npm i @amrsaber/rand-string
+npm i -g @amrsaber/rand-string
 ```
 
 ## Usage
