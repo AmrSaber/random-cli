@@ -1,6 +1,6 @@
 {
   "name": "@amrsaber/rand-string",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI tool that generates and outputs random string of choice",
   "main": "cli.js",
   "author": "Amr Saber",
@@ -11,7 +11,6 @@
     "bump:minor": "npm version minor --no-git-tag-version",
     "bump:patch": "npm version patch --no-git-tag-version",
     "postversion": "git add -- package.json package-lock.json && git commit -m \":arrow_up: Bump version to $npm_package_version\" && git tag \"v$npm_package_version\""
-
   },
   "keywords": [
     "cli",
