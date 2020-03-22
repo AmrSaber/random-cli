@@ -6,6 +6,13 @@
   "author": "Amr Saber",
   "repository": "https://github.com/AmrSaber/rand-string",
   "license": "MIT",
+  "scripts": {
+    "bump:major": "npm version major --no-git-tag-version",
+    "bump:minor": "npm version minor --no-git-tag-version",
+    "bump:patch": "npm version patch --no-git-tag-version",
+    "postversion": "git add -- package.json package-lock.json && git commit -m \":arrow_up: Bump version to $npm_package_version\" && git tag \"v$npm_package_version\""
+
+  },
   "keywords": [
     "cli",
     "random",
