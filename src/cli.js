@@ -19,7 +19,7 @@ yargs
   .option('length', {
     alias: 'l',
     type: 'number',
-    default: 10,
+    default: 20,
     describe: 'Length of the random string',
   })
   .option('count', {

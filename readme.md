@@ -11,7 +11,7 @@ After installation, use command `rand-string` and it will print a random string 
 
 ```
 $ rand-string
-8lWqbT6r87
+nTxVfjxuF7AFuDVNJqn2
 ```
 
 ## Options
@@ -21,7 +21,7 @@ $ rand-string
 | help    | h     | -      | -       | Show help message                                           |
 | version | v     | -      | -       | Show package version                                        |
 | type    | t     | String | ascii   | The type of the generated string (see types in table below) |
-| length  | l     | Number | 10      | Length of the generated random string                       |
+| length  | l     | Number | 20      | Length of the generated random string                       |
 | count   | c     | Number | 1       | Number of generated strings                                 |
 
 ### Types
