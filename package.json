@@ -1,0 +1,29 @@
+{
+  "name": "rand-string",
+  "version": "0.1.0",
+  "description": "CLI tool that generates and outputs random string of choice",
+  "main": "cli.js",
+  "author": "Amr Saber",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "random",
+    "random-generator"
+  ],
+  "dependencies": {
+    "esm": "^3.2.25",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1"
+  },
+  "bin": {
+    "rand-string": "./cli.js"
+  },
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13.4"
+  }
+}
