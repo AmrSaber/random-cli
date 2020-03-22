@@ -21,7 +21,7 @@
     "eslint-plugin-import": "^2.20.1"
   },
   "bin": {
-    "rand-string": "./cli.js"
+    "rand-string": "./src/cli.js"
   },
   "engines": {
     "node": "12.16.1",
