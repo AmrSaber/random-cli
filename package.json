@@ -4,6 +4,7 @@
   "description": "CLI tool that generates and outputs random string of choice",
   "main": "cli.js",
   "author": "Amr Saber",
+  "repository": "https://github.com/AmrSaber/rand-string",
   "license": "MIT",
   "keywords": [
     "cli",
