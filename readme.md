@@ -11,7 +11,7 @@ After installation, use command `rand-string` and it will print a random string 
 
 ```
 $ rand-string
-8lWqbT6r87
+nTxVfjxuF7AFuDVNJqn2
 ```
 
 ## Options
@@ -21,7 +21,7 @@ $ rand-string
 | help    | h     | -      | -       | Show help message                                           |
 | version | v     | -      | -       | Show package version                                        |
 | type    | t     | String | ascii   | The type of the generated string (see types in table below) |
-| length  | l     | Number | 10      | Length of the generated random string                       |
+| length  | l     | Number | 20      | Length of the generated random string                       |
 | count   | c     | Number | 1       | Number of generated strings                                 |
 
 ### Types
@@ -37,15 +37,19 @@ The supported types are as following
 
 ## Examples
 ```
-$ rand-string -l 20 -c 3 -t numbers
-14877546087255815315
-31545868498635262292
-55412969142358473770
+$ rand-string -c 2
+vDboPtnabvsuEztusNAl
+YMasHVICXbbQxCLVMMuF
+
+$ rand-string -l 15 -c 3 -t numbers
+366208018712690
+991841686515201
+575580372097167
 
 $ rand-string -l 15 -t base64
 r28VRgeGSPZf6X0=
 
-$ rand-string -l 20 -t extended
+$ rand-string -t extended
 zrk+MQP$_j5pWUWxBV!m
 ```
 
