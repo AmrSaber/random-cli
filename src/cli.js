@@ -8,6 +8,7 @@ const { getRandomString } = require('./helpers');
 // Set yargs options
 yargs
   .strict(true)
+  .demandCommand(0, 0)
   .alias('help', 'h')
   .alias('version', 'v')
   .options(yargsOptions);
