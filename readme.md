@@ -36,6 +36,7 @@ The supported types are as following
 | extended        | Same as ascii plus the characters `+-_$#/@!`         | fX#InRyripY@+f!Q7o7R |
 | base64          | Base 64 string                                       | XU0tg2OW43GJCh5IrrX= |
 | hex             | Hex number (with uppercase and lowercase characters) | 7bCCB51BEb9bDd61f6af |
+| array           | Shuffled array with numbers from 0 to `length-1`     | 4 3 9 6 7 0 5 8 2 1  |
 
 ## Examples
 ```

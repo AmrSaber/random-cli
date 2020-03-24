@@ -1,12 +1,13 @@
 {
   "name": "@amrsaber/rand-string",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "CLI tool that generates and outputs random string of choice",
   "main": "cli.js",
   "author": "Amr Saber",
   "repository": "https://github.com/AmrSaber/rand-string",
   "license": "MIT",
   "scripts": {
+    "publish": "npm publish --access public",
     "bump:major": "npm version major --no-git-tag-version",
     "bump:minor": "npm version minor --no-git-tag-version",
     "bump:patch": "npm version patch --no-git-tag-version",
