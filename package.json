@@ -16,7 +16,12 @@
   "keywords": [
     "cli",
     "random",
-    "random-generator"
+    "string",
+    "random-string",
+    "random string",
+    "random-generator",
+    "random generator",
+    "generator"
   ],
   "dependencies": {
     "esm": "^3.2.25",
