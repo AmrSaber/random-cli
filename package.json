@@ -7,6 +7,9 @@
   "repository": "https://github.com/AmrSaber/rand-string",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/ tests/",
     "publish": "npm publish --access public",
     "bump:major": "npm version major --no-git-tag-version",
     "bump:minor": "npm version minor --no-git-tag-version",
@@ -24,6 +27,7 @@
     "generator"
   ],
   "dependencies": {
+    "@types/jest": "^25.1.4",
     "esm": "^3.2.25",
     "yargs": "^15.3.1"
   },
@@ -31,6 +35,10 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.1",
+    "faker": "^4.1.0",
+    "jest": "^25.2.3",
+    "jest-esm-transformer": "^1.0.0",
+    "jest-extended": "^0.11.5",
     "node-run-cmd": "^1.0.1"
   },
   "bin": {
@@ -39,5 +47,14 @@
   "engines": {
     "node": "12.16.1",
     "npm": "6.13.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ],
+    "transform": {
+      ".js": "jest-esm-transformer"
+    }
   }
 }
