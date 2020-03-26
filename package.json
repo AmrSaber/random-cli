@@ -30,7 +30,8 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1"
+    "eslint-plugin-import": "^2.20.1",
+    "node-run-cmd": "^1.0.1"
   },
   "bin": {
     "rand-string": "./src/cli.js"
