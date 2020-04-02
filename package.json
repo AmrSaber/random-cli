@@ -2,7 +2,7 @@
   "name": "@amrsaber/rand-string",
   "version": "0.3.0",
   "description": "CLI tool that generates and outputs random string of choice",
-  "main": "cli.js",
+  "main": "src/cli.js",
   "author": "Amr Saber",
   "repository": "https://github.com/AmrSaber/rand-string",
   "license": "MIT",
