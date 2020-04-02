@@ -10,37 +10,39 @@ export const ArrayCommand = {
 
   describe: 'Prints a shuffled array, array starts at 1 by default',
 
-  builder: {
-    length: {
-      type: 'number',
-      default: 10,
-      describe: 'Length of the shuffled array',
-    },
+  builder: yargs => yargs
+    .positional(
+      'length',
+      {
+        type: 'number',
+        default: 10,
+        describe: 'Length of the shuffled array',
+      },
+    ).options({
+      0: {
+        type: 'boolean',
+        describe: 'Array should start at 0, short-hand for "-s 0"',
+      },
 
-    0: {
-      type: 'boolean',
-      describe: 'Array should start at 0, short-hand for "-s 0"',
-    },
+      start: {
+        alias: 's',
+        type: 'number',
+        describe: 'Array starting position, overrides -0 if both were provided',
+      },
 
-    start: {
-      alias: 's',
-      type: 'number',
-      describe: 'Array starting position, overrides -0 if both were provided',
-    },
+      end: {
+        alias: 'e',
+        type: 'number',
+        describe: 'Array ending position, overrides length',
+      },
 
-    end: {
-      alias: 'e',
-      type: 'number',
-      describe: 'Array ending position, overrides length',
-    },
-
-    delimiter: {
-      alias: 'd',
-      type: 'string',
-      default: ' ',
-      describe: 'Array element delimiter',
-    },
-  },
+      delimiter: {
+        alias: 'd',
+        type: 'string',
+        default: ' ',
+        describe: 'Array element delimiter',
+      },
+    }),
 
   handler: argv => {
     const { length, start, end, delimiter, count } = argv;
@@ -54,6 +56,11 @@ export const ArrayCommand = {
 
     let arrayEnd = arrayStart + length - 1;
     if (end != null) { arrayEnd = end; }
+
+    if (arrayEnd < arrayStart) {
+      console.error('Array end must be less than or equal array start'); // eslint-disable-line no-console
+      return;
+    }
 
     // Construct number arrays of the given count
     const shuffledArrays = [];
