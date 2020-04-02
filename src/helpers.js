@@ -12,6 +12,39 @@ import {
 } from './constants';
 
 /**
+ * Returns a random integer in the given range.
+ * Note: this is implemented using binary-search-like technique, so it have complexity of O(log(max-min)).
+ *
+ * Personal Note: I am not sure if this is worth the effort;
+ * I could not find anyone who references such a method or anything similar,
+ * but I feel like it's better that depending on the float precision of Math.random
+ *
+ * @param {Object} args
+ * @param {Number} [args.min=0]
+ * @param {Number} args.max
+ *
+ * @returns {Number}
+ */
+function getRandomIntInRange({ min = 0, max }) {
+  if (min > max) { throw new Error('Min must be less than or equal to max'); }
+
+  let low = min;
+  let high = max;
+
+  while (high > low) {
+    const med = Math.ceil((low + high) / 2);
+
+    if (Math.random() > 0.5) {
+      low = med;
+    } else {
+      high = med - 1;
+    }
+  }
+
+  return low;
+}
+
+/**
  * Returns a random element from the given array.
  *
  * @param {[Any]} arr
@@ -19,7 +52,7 @@ import {
  * @returns {Any}
  */
 function getRandomElement(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
+  const randomIndex = getRandomIntInRange({ max: arr.length - 1 });
   return arr[randomIndex];
 }
 
@@ -54,7 +87,7 @@ function getShuffledArray(length) {
   const shuffled = [];
 
   for (let i = 0; i < length; ++i) {
-    const randomIndex = Math.floor(Math.random() * i);
+    const randomIndex = getRandomIntInRange({ max: i });
     if (randomIndex === shuffled.length) {
       shuffled.push(i);
     } else {
