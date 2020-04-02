@@ -112,7 +112,7 @@ $ random int 100 1000
 ```
 
 #### `boolean`
-Prints a random boolean.
+Prints a random boolean, has the alias `bool`.
 
 Example
 ```
