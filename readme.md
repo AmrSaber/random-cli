@@ -5,7 +5,7 @@ Generates and prints a random string (and other types) to terminal.
 Install the package globally to be able to use it in the terminal.
 
 ```bash
-npm i -g @amrsaber/rand-string
+npm i -g random-generator-cli
 ```
 
 ## Examples
