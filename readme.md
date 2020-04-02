@@ -19,6 +19,9 @@ $ random array
 $ random number 1 10
 9
 
+$ random float
+0.4114482629
+
 $ random boolean
 true
 ```
@@ -27,7 +30,7 @@ true
 After installation, use `random <command>`, you can use `random <command> -h` to show help message related to that command, or use `random -h` to list all the available commands and options.
 
 ### Commands
-Available commands are [`string`, `array`, `number`, `boolean`], each of theses commands will be explained next.
+Available commands are [`string`, `array`, `number`, `float`, `boolean`], each of theses commands will be explained next.
 
 #### `string`
 Prints a random string with given length and type, also has the alias `str`.
@@ -97,7 +100,7 @@ $ random arr 5 -d ', '
 ```
 
 #### `number <min> <max>`
-Print a random number between `min` and `max`, also has the aliases: [`num`, `integer`, `int`].
+Prints a random number between `min` and `max`, also has the aliases: [`num`, `integer`, `int`].
 
 Example
 ```
@@ -109,6 +112,23 @@ $ random num 0 5
 
 $ random int 100 1000
 240
+```
+
+#### `float`
+Prints a float number between 0 (inclusive) and 1 (exclusive).
+
+Float options:
+| Option    | Alias | Type   | Default   | Description                                        |
+|-----------|-------|--------|-----------|----------------------------------------------------|
+| precision | p     | Number | `10`      | The desired precision of the floating point number |
+
+Example
+```
+$ random float
+0.2067463883
+
+$ random float -p 5
+0.62194
 ```
 
 #### `boolean`
