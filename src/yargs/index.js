@@ -1,2 +1,4 @@
+import * as commands from './commands';
+
 export { default as globalYargsOptions } from './options';
-export { default as yargsCommands } from './commands';
+export const yargsCommands = Object.values(commands);

@@ -1,6 +1,2 @@
-import { StringCommand } from './string';
-import { ArrayCommand } from './array';
-
-const commands = [StringCommand, ArrayCommand];
-
-export default commands;
+export * from './string';
+export * from './array';
