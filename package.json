@@ -43,7 +43,7 @@
     "node-run-cmd": "^1.0.1"
   },
   "bin": {
-    "rand-string": "./src/cli.js"
+    "random": "./src/cli.js"
   },
   "engines": {
     "node": "12.16.1",
