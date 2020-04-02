@@ -2,23 +2,19 @@
 require = require('esm')(module); // eslint-disable-line no-global-assign
 
 const yargs = require('yargs');
-const yargsOptions = require('./yargs-options').default;
-const { getRandomString } = require('./helpers');
+const { globalYargsOptions, yargsCommands } = require('./yargs');
 
 // Set yargs options
 yargs
   .strict(true)
-  .demandCommand(0, 0)
+  .demandCommand(1, 1)
   .alias('help', 'h')
   .alias('version', 'v')
-  .options(yargsOptions);
+  .options(globalYargsOptions)
+  .wrap(yargs.terminalWidth());
 
-// Get parsed arguments from yargs
-const { argv: { type, length, count } } = yargs;
+// Attach each command to yargs
+yargsCommands.forEach(command => yargs.command(command));
 
-// Construct number strings of the given count
-const randomStrings = [];
-for (let c = 0; c < count; ++c) { randomStrings.push(getRandomString({ type, length })); }
-
-// Print the generated random strings
-console.log(randomStrings.join('\n')); // eslint-disable-line no-console
+// Must be called for yargs to parse the arguments
+yargs.argv; // eslint-disable-line no-unused-expressions

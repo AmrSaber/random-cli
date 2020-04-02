@@ -7,9 +7,70 @@ import {
   TYPE_EXTENDED,
   TYPE_HEX,
   TYPE_BASE_64,
-  TYPE_ARRAY,
   HEX_DIGITS,
 } from './constants';
+
+/**
+ * Returns a random integer in the given range.
+ * Note: this is implemented using binary-search-like technique, so it have complexity of O(log(max-min)).
+ *
+ * Personal Note: I am not sure if this is worth the effort;
+ * I could not find anyone who references such a method or anything similar,
+ * but I feel like it's better that depending on the float precision of Math.random
+ *
+ * @param {Object} args
+ * @param {Number} [args.min=0]
+ * @param {Number} args.max
+ *
+ * @returns {Number}
+ */
+export function getRandomIntInRange({ min = 0, max }) {
+  if (min > max) { throw new Error('Min must be less than or equal to max'); }
+
+  let low = min;
+  let high = max;
+
+  while (high > low) {
+    const med = Math.ceil((low + high) / 2);
+
+    if (Math.random() > 0.5) {
+      low = med;
+    } else {
+      high = med - 1;
+    }
+  }
+
+  return low;
+}
+
+/**
+ * Returns a shuffled array with the elements [0 .. length-1]
+ * This uses a variation of fisher-yates algorithm described in link below
+ * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Variants
+ *
+ * @param {Object} args
+ * @param {Number} args.start
+ * @param {Number} args.end
+ *
+ * @returns {[Number]}
+ */
+export function getShuffledArray({ start, end }) {
+  const shuffled = [];
+
+  for (let i = 0; i < (end - start + 1); ++i) {
+    const randomIndex = getRandomIntInRange({ max: i });
+    const nextValue = start + i;
+
+    if (randomIndex === shuffled.length) {
+      shuffled.push(nextValue);
+    } else {
+      shuffled.push(shuffled[randomIndex]);
+      shuffled[randomIndex] = nextValue;
+    }
+  }
+
+  return shuffled;
+}
 
 /**
  * Returns a random element from the given array.
@@ -19,7 +80,7 @@ import {
  * @returns {Any}
  */
 function getRandomElement(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
+  const randomIndex = getRandomIntInRange({ max: arr.length - 1 });
   return arr[randomIndex];
 }
 
@@ -36,34 +97,8 @@ function getValidCharacters(type) {
     case TYPE_EXTENDED: return [...ASCII_LETTERS, ...NUMBERS, ...'+-_$#/@!'];
     case TYPE_HEX: return HEX_DIGITS;
     case TYPE_BASE_64: return [...ASCII_LETTERS, ...NUMBERS, ...'+/'];
-    case TYPE_ARRAY: throw new Error('Cannot handle type [array]');
     default: throw new Error(`Unknown type [${type}]`);
   }
-}
-
-/**
- * Returns a shuffled array with the elements [0 .. length-1]
- * This uses a variation of fisher-yates algorithm described in link below
- * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Variants
- *
- * @param {Number} length
- *
- * @returns {[Number]}
- */
-function getShuffledArray(length) {
-  const shuffled = [];
-
-  for (let i = 0; i < length; ++i) {
-    const randomIndex = Math.floor(Math.random() * i);
-    if (randomIndex === shuffled.length) {
-      shuffled.push(i);
-    } else {
-      shuffled.push(shuffled[randomIndex]);
-      shuffled[randomIndex] = i;
-    }
-  }
-
-  return shuffled.join(' ');
 }
 
 /**
@@ -76,9 +111,6 @@ function getShuffledArray(length) {
  * @returns {String}
  */
 export function getRandomString({ type, length }) {
-  // Shuffled array has special handling unlike the rest of the types
-  if (type === TYPE_ARRAY) { return getShuffledArray(length); }
-
   // Populate the valid letters based on the random string type
   const valid = getValidCharacters(type);
 
