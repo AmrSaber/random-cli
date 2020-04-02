@@ -1,6 +1,5 @@
 import { TYPE_ASCII, STRING_TYPES } from '../../constants';
-import { getRandomString } from '../../helpers';
-
+import { stringHandler } from '../../handlers';
 
 /**
  * @type {import('yargs').CommandModule}
@@ -29,14 +28,5 @@ export const StringCommand = {
     },
   },
 
-  handler: argv => {
-    const { type, length, count } = argv;
-
-    // Construct number strings of the given count
-    const randomStrings = [];
-    for (let c = 0; c < count; ++c) { randomStrings.push(getRandomString({ type, length })); }
-
-    // Print the generated random strings
-    console.log(randomStrings.join('\n')); // eslint-disable-line no-console
-  },
+  handler: stringHandler,
 };

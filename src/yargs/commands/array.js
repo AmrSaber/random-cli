@@ -1,4 +1,4 @@
-import { getShuffledArray } from '../../helpers';
+import { arrayHandler } from '../../handlers';
 
 /**
  * @type {import('yargs').CommandModule}
@@ -20,6 +20,7 @@ export const ArrayCommand = {
       },
     ).options({
       0: {
+        alias: 'startAtZero',
         type: 'boolean',
         describe: 'Array should start at 0, short-hand for "-s 0"',
       },
@@ -44,32 +45,5 @@ export const ArrayCommand = {
       },
     }),
 
-  handler: argv => {
-    const { length, start, end, delimiter, count } = argv;
-
-    let arrayStart = 1;
-    if (start != null) {
-      arrayStart = start;
-    } else if (argv['0']) {
-      arrayStart = 0;
-    }
-
-    let arrayEnd = arrayStart + length - 1;
-    if (end != null) { arrayEnd = end; }
-
-    if (arrayEnd < arrayStart) {
-      console.error('Array end must be less than or equal array start'); // eslint-disable-line no-console
-      return;
-    }
-
-    // Construct number arrays of the given count
-    const shuffledArrays = [];
-    for (let c = 0; c < count; ++c) {
-      const shuffledArray = getShuffledArray({ start: arrayStart, end: arrayEnd });
-      shuffledArrays.push(shuffledArray.join(delimiter));
-    }
-
-    // Print the generated shuffled arrays
-    console.log(shuffledArrays.join('\n')); // eslint-disable-line no-console
-  },
+  handler: arrayHandler,
 };
