@@ -10,7 +10,8 @@ yargs
   .demandCommand(1, 1)
   .alias('help', 'h')
   .alias('version', 'v')
-  .options(globalYargsOptions);
+  .options(globalYargsOptions)
+  .wrap(yargs.terminalWidth());
 
 // Attach each command to yargs
 yargsCommands.forEach(command => yargs.command(command));
