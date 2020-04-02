@@ -11,12 +11,7 @@ import {
 } from './constants';
 
 /**
- * Returns a random integer in the given range.
- * Note: this is implemented using binary-search-like technique, so it have complexity of O(log(max-min)).
- *
- * Personal Note: I am not sure if this is worth the effort;
- * I could not find anyone who references such a method or anything similar,
- * but I feel like it's better that depending on the float precision of Math.random
+ * Returns a random integer in the given range, both start and end are inclusive.
  *
  * @param {Object} args
  * @param {Number} [args.min=0]
@@ -27,20 +22,9 @@ import {
 export function getRandomIntInRange({ min = 0, max }) {
   if (min > max) { throw new Error('Min must be less than or equal to max'); }
 
-  let low = min;
-  let high = max;
-
-  while (high > low) {
-    const med = Math.ceil((low + high) / 2);
-
-    if (Math.random() > 0.5) {
-      low = med;
-    } else {
-      high = med - 1;
-    }
-  }
-
-  return low;
+  const rangeMin = Math.ceil(min);
+  const rangeMax = Math.floor(max);
+  return Math.floor(Math.random() * (rangeMax - rangeMin + 1)) + rangeMin;
 }
 
 /**
