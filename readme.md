@@ -83,6 +83,9 @@ $ random array
 $ random array 5
 4 1 5 3 2
 
+$ random array 5 -0
+2 0 4 1 3
+
 $ random arr 5 -s 5
 5 6 8 9 7
 
