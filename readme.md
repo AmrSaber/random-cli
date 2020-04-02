@@ -24,7 +24,7 @@ true
 ```
 
 ## Usage
-After installation, use `random <command>`, You can use `random <command> -h` to show help message related to that command, or use `random -h` to list all the available commands and options.
+After installation, use `random <command>`, you can use `random <command> -h` to show help message related to that command, or use `random -h` to list all the available commands and options.
 
 ### Commands
 Available commands are [`string`, `array`, `number`, `boolean`], each of theses commands will be explained next.
@@ -63,7 +63,7 @@ $ random str -t extended
 zrk+MQP$_j5pWUWxBV!m
 ```
 
-### `array [length]`
+#### `array [length]`
 Prints a shuffled array that starts at 1 by default, also accepts optional length argument that defaults to 10, and has the alias `arr`.
 
 Note: the flag `-0` can be used to indicate that the array should start at 0.
@@ -96,7 +96,7 @@ $ random arr 5 -d ', '
 4, 2, 5, 3, 1
 ```
 
-### `number <min> <max>`
+#### `number <min> <max>`
 Print a random number between `min` and `max`, also has the aliases: [`num`, `integer`, `int`].
 
 Example
@@ -111,7 +111,7 @@ $ random int 100 1000
 240
 ```
 
-### `boolean`
+#### `boolean`
 Prints a random boolean.
 
 Example
@@ -123,7 +123,7 @@ $ random boolean
 true
 ```
 
-## Global Options
+### Global Options
 
 | Option  | Alias | Type   | Default | Description                 |
 |---------|-------|--------|---------|-----------------------------|
