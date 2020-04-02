@@ -7,7 +7,6 @@ import {
   TYPE_EXTENDED,
   TYPE_HEX,
   TYPE_BASE_64,
-  TYPE_ARRAY,
   HEX_DIGITS,
 } from './constants';
 
@@ -69,7 +68,6 @@ function getValidCharacters(type) {
     case TYPE_EXTENDED: return [...ASCII_LETTERS, ...NUMBERS, ...'+-_$#/@!'];
     case TYPE_HEX: return HEX_DIGITS;
     case TYPE_BASE_64: return [...ASCII_LETTERS, ...NUMBERS, ...'+/'];
-    case TYPE_ARRAY: throw new Error('Cannot handle type [array]');
     default: throw new Error(`Unknown type [${type}]`);
   }
 }
@@ -109,9 +107,6 @@ function getShuffledArray(length) {
  * @returns {String}
  */
 export function getRandomString({ type, length }) {
-  // Shuffled array has special handling unlike the rest of the types
-  if (type === TYPE_ARRAY) { return getShuffledArray(length); }
-
   // Populate the valid letters based on the random string type
   const valid = getValidCharacters(type);
 
