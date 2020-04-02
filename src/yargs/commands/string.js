@@ -1,12 +1,16 @@
 import { TYPE_ASCII, STRING_TYPES } from '../../constants';
 import { getRandomString } from '../../helpers';
 
+
+/**
+ * @type {import('yargs').CommandModule}
+ */
 export const StringCommand = {
   command: 'string',
 
   aliases: ['str'],
 
-  desc: 'Prints a random string',
+  describe: 'Prints a random string',
 
   builder: {
     type: {

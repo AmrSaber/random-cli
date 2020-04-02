@@ -24,7 +24,7 @@ import {
  *
  * @returns {Number}
  */
-function getRandomIntInRange({ min = 0, max }) {
+export function getRandomIntInRange({ min = 0, max }) {
   if (min > max) { throw new Error('Min must be less than or equal to max'); }
 
   let low = min;
@@ -41,6 +41,35 @@ function getRandomIntInRange({ min = 0, max }) {
   }
 
   return low;
+}
+
+/**
+ * Returns a shuffled array with the elements [0 .. length-1]
+ * This uses a variation of fisher-yates algorithm described in link below
+ * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Variants
+ *
+ * @param {Object} args
+ * @param {Number} args.start
+ * @param {Number} args.end
+ *
+ * @returns {[Number]}
+ */
+export function getShuffledArray({ start, end }) {
+  const shuffled = [];
+
+  for (let i = 0; i < (end - start + 1); ++i) {
+    const randomIndex = getRandomIntInRange({ max: i });
+    const nextValue = start + i;
+
+    if (randomIndex === shuffled.length) {
+      shuffled.push(nextValue);
+    } else {
+      shuffled.push(shuffled[randomIndex]);
+      shuffled[randomIndex] = nextValue;
+    }
+  }
+
+  return shuffled;
 }
 
 /**
@@ -70,31 +99,6 @@ function getValidCharacters(type) {
     case TYPE_BASE_64: return [...ASCII_LETTERS, ...NUMBERS, ...'+/'];
     default: throw new Error(`Unknown type [${type}]`);
   }
-}
-
-/**
- * Returns a shuffled array with the elements [0 .. length-1]
- * This uses a variation of fisher-yates algorithm described in link below
- * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Variants
- *
- * @param {Number} length
- *
- * @returns {[Number]}
- */
-function getShuffledArray(length) {
-  const shuffled = [];
-
-  for (let i = 0; i < length; ++i) {
-    const randomIndex = getRandomIntInRange({ max: i });
-    if (randomIndex === shuffled.length) {
-      shuffled.push(i);
-    } else {
-      shuffled.push(shuffled[randomIndex]);
-      shuffled[randomIndex] = i;
-    }
-  }
-
-  return shuffled.join(' ');
 }
 
 /**
