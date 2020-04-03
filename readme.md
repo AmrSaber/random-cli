@@ -134,6 +134,18 @@ $ random float -p 5
 #### `boolean`
 Prints a random boolean, has the alias `bool`.
 
+Boolean options:
+| Option | Alias | Type   | Default      | Description                                       |
+|--------|-------|--------|--------------|---------------------------------------------------|
+| type   | t     | String | `true-false` | Boolean type, types are listed in the table below |
+
+Boolean types:
+| Type                 | Possible values   | Example |
+|----------------------|-------------------|---------|
+| true-false (default) | [`true`, `false`] | true    |
+| yes-no               | [`yes`, `no`]     | no      |
+| numeric              | [`1`, `0`]        | 1       |
+
 Example
 ```
 $ random boolean
