@@ -1,8 +1,10 @@
-function booleanHandler({ count }) {
+import { getRandomBoolean } from '../helpers/boolean';
+
+function booleanHandler({ count, type }) {
   // Construct number strings of the given count
   const randomBooleans = [];
   for (let c = 0; c < count; ++c) {
-    const boolean = Math.random() > 0.5;
+    const boolean = getRandomBoolean({ type });
     randomBooleans.push(String(boolean));
   }
 
