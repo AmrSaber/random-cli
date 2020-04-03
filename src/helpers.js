@@ -1,12 +1,12 @@
 import {
-  TYPE_ASCII,
+  STRING_TYPE_ASCII,
   ASCII_LETTERS,
   NUMBERS,
-  TYPE_NUMBERS,
-  TYPE_LETTERS,
-  TYPE_EXTENDED,
-  TYPE_HEX,
-  TYPE_BASE_64,
+  STRING_TYPE_NUMBERS,
+  STRING_TYPE_LETTERS,
+  STRING_TYPE_EXTENDED,
+  STRING_TYPE_HEX,
+  STRING_TYPE_BASE_64,
   HEX_DIGITS,
 } from './constants';
 
@@ -75,12 +75,12 @@ function getRandomElement(arr) {
  */
 function getValidCharacters(type) {
   switch (type) {
-    case TYPE_ASCII: return [...ASCII_LETTERS, ...NUMBERS];
-    case TYPE_NUMBERS: return NUMBERS;
-    case TYPE_LETTERS: return ASCII_LETTERS;
-    case TYPE_EXTENDED: return [...ASCII_LETTERS, ...NUMBERS, ...'+-_$#/@!'];
-    case TYPE_HEX: return HEX_DIGITS;
-    case TYPE_BASE_64: return [...ASCII_LETTERS, ...NUMBERS, ...'+/'];
+    case STRING_TYPE_ASCII: return [...ASCII_LETTERS, ...NUMBERS];
+    case STRING_TYPE_NUMBERS: return NUMBERS;
+    case STRING_TYPE_LETTERS: return ASCII_LETTERS;
+    case STRING_TYPE_EXTENDED: return [...ASCII_LETTERS, ...NUMBERS, ...'+-_$#/@!'];
+    case STRING_TYPE_HEX: return HEX_DIGITS;
+    case STRING_TYPE_BASE_64: return [...ASCII_LETTERS, ...NUMBERS, ...'+/'];
     default: throw new Error(`Unknown type [${type}]`);
   }
 }
@@ -103,7 +103,7 @@ export function getRandomString({ type, length }) {
   for (let i = 0; i < length; ++i) { randomLetters.push(getRandomElement(valid)); }
 
   // Base64 string must have length that is a multiple of 4
-  while (type === TYPE_BASE_64 && randomLetters.length % 4 !== 0) { randomLetters.push('='); }
+  while (type === STRING_TYPE_BASE_64 && randomLetters.length % 4 !== 0) { randomLetters.push('='); }
 
   // Join the created random array to generate the resulting string
   return randomLetters.join('');

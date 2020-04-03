@@ -1,4 +1,4 @@
-import { TYPE_ASCII, STRING_TYPES } from '../../constants';
+import { STRING_TYPE_ASCII, STRING_TYPES } from '../../constants';
 import { stringHandler } from '../../handlers';
 
 /**
@@ -15,7 +15,7 @@ export const StringCommand = {
     type: {
       alias: 't',
       type: 'string',
-      default: TYPE_ASCII,
+      default: STRING_TYPE_ASCII,
       choices: STRING_TYPES,
       describe: 'Type of the random string',
     },
