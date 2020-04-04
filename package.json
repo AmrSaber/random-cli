@@ -3,7 +3,10 @@
   "version": "2.1.0",
   "description": "CLI tool that generates and outputs random string of choice",
   "main": "src/cli.js",
-  "author": "Amr Saber",
+  "author": {
+    "name": "Amr Saber",
+    "email": "Amr.M.Saber.mail@gmail.com"
+  },
   "repository": "https://github.com/AmrSaber/random-cli",
   "license": "MIT",
   "publishConfig": {
