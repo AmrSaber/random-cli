@@ -1,4 +1,27 @@
 # Random Generator CLI
+
+<p>
+  <!-- NPM version badge -->
+  <a href="https://www.npmjs.com/package/random-generator-cli">
+    <img src="https://img.shields.io/npm/v/random-generator-cli" alt="version"/>
+  </a>
+
+  <!-- Github "Test Main" workflow status -->
+  <a href="https://github.com/AmrSaber/random-cli/actions">
+    <img src="https://github.com/AmrSaber/random-cli/workflows/Test%20Master/badge.svg" alt="Test Status"/>
+  </a>
+
+  <!-- NPM weekly downloads -->
+  <a href="https://www.npmjs.com/package/random-generator-cli">
+    <img src="https://img.shields.io/npm/dw/random-generator-cli" alt="weekly downloads"/>
+  </a>
+
+  <!-- License -->
+  <a href="https://github.com/AmrSaber/random-cli/blob/master/LICENSE">
+    <img src="https://img.shields.io/npm/l/random-generator-cli" alt="license"/>
+  </a>
+</p>
+
 Generates and prints a random string (and other types) to terminal.
 
 ## Install
