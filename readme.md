@@ -55,13 +55,16 @@ true
 
 $ random pick a b c d e
 d
+
+$ random shuffle a b c d e
+b d a e c
 ```
 
 ## Usage
 After installation, use `random <command>`, you can use `random <command> -h` to show help message related to that command, or use `random -h` to list all the available commands and options.
 
 ### Commands
-Available commands are [`string`, `array`, `number`, `float`, `boolean`, `pick`], each of theses commands will be explained next.
+Available commands are [`string`, `array`, `number`, `float`, `boolean`, `pick`, `shuffle`], each of theses commands will be explained next.
 
 #### `string`
 Prints a random string with given length and type, also has the alias `str`.
@@ -218,6 +221,23 @@ a4 a2
 
 $ random pick a1 a2 a3 a4 -n 2 -d ', '
 a2, a3
+```
+
+#### `shuffle <items..>`
+Shuffles the given array of items
+
+Boolean options:
+| Option    | Alias | Type   | Default | Description                                 |
+|-----------|-------|--------|---------|---------------------------------------------|
+| delimiter | d     | String | `' '`   | Delimiter that separates the shuffled items |
+
+Example
+```
+$ random pick a1 a2 a3 a4
+a2 a3 a4 a1
+
+$ random pick a1 a2 a3 a4 -d '|'
+a1|a4|a3|a2
 ```
 
 ### Global Options
