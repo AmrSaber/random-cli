@@ -1,4 +1,27 @@
 # Random Generator CLI
+
+<p>
+  <!-- NPM version badge -->
+  <a href="https://www.npmjs.com/package/random-generator-cli">
+    <img src="https://img.shields.io/npm/v/random-generator-cli" alt="version"/>
+  </a>
+
+  <!-- Github "Test Main" workflow status -->
+  <a href="https://github.com/AmrSaber/random-cli/actions">
+    <img src="https://github.com/AmrSaber/random-cli/workflows/Test%20Master/badge.svg" alt="Test Status"/>
+  </a>
+
+  <!-- NPM weekly downloads -->
+  <a href="https://www.npmjs.com/package/random-generator-cli">
+    <img src="https://img.shields.io/npm/dw/random-generator-cli" alt="weekly downloads"/>
+  </a>
+
+  <!-- License -->
+  <a href="https://github.com/AmrSaber/random-cli/blob/master/LICENSE">
+    <img src="https://img.shields.io/npm/l/random-generator-cli" alt="license"/>
+  </a>
+</p>
+
 Generates and prints a random string (and other types) to terminal.
 
 ## Install
@@ -62,7 +85,8 @@ $ random string -l 15 -c 3 -t numbers
 991841686515201
 575580372097167
 
-$ random str -t extended
+$ random str -t extendedarray 15 --pad
+14 11 12 15 13 03 08 07 05 06 02 01 09 04 10
 zrk+MQP$_j5pWUWxBV!m
 ```
 
@@ -77,6 +101,12 @@ Array options:
 | start     | s     | Number | `1`       | Array starting position, overrides `-0` if both are provided |
 | end       | e     | Number | -         | Array ending, overrides `length`                             |
 | delimiter | d     | String | `' '`     | The delimiter that is printed between array numbers          |
+
+Array flags:
+| Flag        | Alias | Default   | Description                                                          |
+|-------------|-------|-----------|----------------------------------------------------------------------|
+| startAtZero | 0     | `false`   | Array elements start at 0, equivalent to `-s 0`                      |
+| pad         | -     | `false`   | Add zero-padding to small number, so all number have the same length |
 
 Examples:
 ```
@@ -97,6 +127,12 @@ $ random arr -s 5 -e 10
 
 $ random arr 5 -d ', '
 4, 2, 5, 3, 1
+
+$ random array 15 --pad
+14 11 12 15 13 03 08 07 05 06 02 01 09 04 10
+
+$ random array 5 --pad
+1 2 5 4 3
 ```
 
 #### `number <min> <max>`
