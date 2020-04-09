@@ -14,15 +14,14 @@ import { getRandomIntInRange } from './random';
 export function getShuffledArray({ start, end }) {
   const shuffled = [];
 
-  for (let i = 0; i < (end - start + 1); ++i) {
-    const randomIndex = getRandomIntInRange({ max: i });
-    const nextValue = start + i;
+  for (let value = start; value <= end; ++value) {
+    const randomIndex = getRandomIntInRange({ min: 0, max: shuffled.length });
 
     if (randomIndex === shuffled.length) {
-      shuffled.push(nextValue);
+      shuffled.push(value);
     } else {
       shuffled.push(shuffled[randomIndex]);
-      shuffled[randomIndex] = nextValue;
+      shuffled[randomIndex] = value;
     }
   }
 
