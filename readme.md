@@ -8,7 +8,12 @@
 
   <!-- Github "Test Main" workflow status -->
   <a href="https://github.com/AmrSaber/random-cli/actions">
-    <img src="https://github.com/AmrSaber/random-cli/workflows/Test%20Master/badge.svg" alt="Test Status"/>
+    <img src="https://github.com/AmrSaber/random-cli/workflows/Test%20Master/badge.svg" alt="Test Master Status"/>
+  </a>
+
+  <!-- Github "Test Dev" workflow status -->
+  <a href="https://github.com/AmrSaber/random-cli/actions">
+    <img src="https://github.com/AmrSaber/random-cli/workflows/Test%20Dev/badge.svg" alt="Test Dev Status"/>
   </a>
 
   <!-- NPM weekly downloads -->
