@@ -8,7 +8,12 @@
 
   <!-- Github "Test Main" workflow status -->
   <a href="https://github.com/AmrSaber/random-cli/actions">
-    <img src="https://github.com/AmrSaber/random-cli/workflows/Test%20Master/badge.svg" alt="Test Status"/>
+    <img src="https://github.com/AmrSaber/random-cli/workflows/Test%20Master/badge.svg" alt="Test Master Status"/>
+  </a>
+
+  <!-- Github "Test Dev" workflow status -->
+  <a href="https://github.com/AmrSaber/random-cli/actions">
+    <img src="https://github.com/AmrSaber/random-cli/workflows/Test%20Dev/badge.svg" alt="Test Dev Status"/>
   </a>
 
   <!-- NPM weekly downloads -->
@@ -47,13 +52,19 @@ $ random float
 
 $ random boolean
 true
+
+$ random pick a b c d e
+d
+
+$ random shuffle a b c d e
+b d a e c
 ```
 
 ## Usage
 After installation, use `random <command>`, you can use `random <command> -h` to show help message related to that command, or use `random -h` to list all the available commands and options.
 
 ### Commands
-Available commands are [`string`, `array`, `number`, `float`, `boolean`], each of theses commands will be explained next.
+Available commands are [`string`, `array`, `number`, `float`, `boolean`, `pick`, `shuffle`], each of theses commands will be explained next.
 
 #### `string`
 Prints a random string with given length and type, also has the alias `str`.
@@ -189,6 +200,44 @@ false
 
 $ random boolean
 true
+```
+
+#### `pick <items..>`
+Prints a random item(s) from the given items
+
+Boolean options:
+| Option    | Alias | Type   | Default | Description                                      |
+|-----------|-------|--------|---------|--------------------------------------------------|
+| number    | n     | Number | `1`     | The number of items to chose, without repetition |
+| delimiter | d     | String | `' '`   | Delimiter that separates the chosen items        |
+
+Example
+```
+$ random pick a1 a2 a3 a4
+a3
+
+$ random pick a1 a2 a3 a4 -n 2
+a4 a2
+
+$ random pick a1 a2 a3 a4 -n 2 -d ', '
+a2, a3
+```
+
+#### `shuffle <items..>`
+Shuffles the given array of items
+
+Boolean options:
+| Option    | Alias | Type   | Default | Description                                 |
+|-----------|-------|--------|---------|---------------------------------------------|
+| delimiter | d     | String | `' '`   | Delimiter that separates the shuffled items |
+
+Example
+```
+$ random pick a1 a2 a3 a4
+a2 a3 a4 a1
+
+$ random pick a1 a2 a3 a4 -d '|'
+a1|a4|a3|a2
 ```
 
 ### Global Options
