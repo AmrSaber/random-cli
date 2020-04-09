@@ -29,6 +29,8 @@
 
 Generates and prints a random string (and other types) to terminal.
 
+Note: a cryptographically secure pseudo random number generator (CSPRNG, using `crypto`) is used for all the randomization and not `Math.random`.
+
 ## Install
 Install the package globally to be able to use it in the terminal.
 
