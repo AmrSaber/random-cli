@@ -28,3 +28,15 @@ export function getShuffledArray({ start, end }) {
 
   return shuffled;
 }
+
+/**
+ * Given an array, returns a shuffled instance of that array.
+ *
+ * @param {Any[]} arr
+ *
+ * @returns {Any[]}
+ */
+export function shuffle(arr) {
+  const shuffledIndexes = getShuffledArray({ start: 0, end: arr.length - 1 });
+  return shuffledIndexes.map(i => arr[i]);
+}
