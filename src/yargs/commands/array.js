@@ -25,6 +25,11 @@ export const ArrayCommand = {
         describe: 'Array should start at 0, short-hand for "-s 0"',
       },
 
+      pad: {
+        type: 'boolean',
+        describe: 'Should pad small numbers with 0s, so all numbers have the same length',
+      },
+
       start: {
         alias: 's',
         type: 'number',

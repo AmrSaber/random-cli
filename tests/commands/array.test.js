@@ -52,4 +52,11 @@ describe('String Command Unit Test', () => {
     const result = await executeCli(`array -d ${delimiter}`);
     expect(result).toMatch(RegExp(`^([0-9]+\\${delimiter})*[0-9]+$`));
   });
+
+  test('numbers are 0-padded with --pad option', async () => {
+    const length = faker.random.number({ min: 5, max: 100 });
+    const result = await executeCli(`array ${length} --pad`);
+    assertArrayElements({ array: result.split(' ').map(Number), start: 1 });
+    result.split(' ').forEach(number => expect(number).toHaveLength(String(length).length));
+  });
 });
