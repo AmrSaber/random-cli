@@ -9,13 +9,13 @@ export function getSecureFloat() {
   // Generate 7 random bytes
   const bytes = crypto.randomBytes(7);
 
-  // Shift 4 bits from first bytes by 4 to the right
-  let randomValue = (bytes[0] % (2 ** 4)) / (2 ** 4);
+  // Shift 5 bits from first bytes by 5 to the right
+  let randomValue = (bytes[0] % (2 ** 5)) / (2 ** 5);
 
   // For each of the following 6 bytes, add its value and shift it 8 bits to the right
   bytes.slice(1).forEach(byte => { randomValue = (randomValue + byte) / (2 ** 8); });
 
-  // randomValue now has a floating point number that is 52 bits long (the size of js float mantissa)
+  // randomValue now has a floating point number that is 53 bits long (the size of js float mantissa)
   return randomValue;
 }
 
