@@ -12,8 +12,8 @@ export const FloatCommand = {
     precision: {
       alias: 'p',
       type: 'number',
-      default: 10,
-      describe: 'Float precision, note that max precision is 16, any greater value supported will be considered 16',
+      default: 100,
+      describe: 'Float precision, note that max precision is 100, any greater value provided will be considered 100',
     },
   }),
 
