@@ -50,7 +50,7 @@ $ random number 1 10
 9
 
 $ random float
-0.4114482629
+0.24374674185057454423031231272034347057342529296875
 
 $ random boolean
 true
@@ -174,7 +174,7 @@ Float options:
 Example
 ```
 $ random float
-0.2067463883
+0.24374674185057454423031231272034347057342529296875
 
 $ random float -p 5
 0.62194
@@ -235,10 +235,10 @@ Boolean options:
 
 Example
 ```
-$ random pick a1 a2 a3 a4
+$ random shuffle a1 a2 a3 a4
 a2 a3 a4 a1
 
-$ random pick a1 a2 a3 a4 -d '|'
+$ random shuffle a1 a2 a3 a4 -d '|'
 a1|a4|a3|a2
 ```
 
