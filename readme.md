@@ -235,10 +235,10 @@ Boolean options:
 
 Example
 ```
-$ random pick a1 a2 a3 a4
+$ random shuffle a1 a2 a3 a4
 a2 a3 a4 a1
 
-$ random pick a1 a2 a3 a4 -d '|'
+$ random shuffle a1 a2 a3 a4 -d '|'
 a1|a4|a3|a2
 ```
 
