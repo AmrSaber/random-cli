@@ -1,6 +1,6 @@
 {
   "name": "random-generator-cli",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "CLI tool that generates and outputs random string of choice",
   "main": "src/cli.js",
   "author": {
