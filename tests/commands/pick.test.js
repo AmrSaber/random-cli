@@ -11,7 +11,7 @@ describe('Float Command Unit Test', () => {
   });
 
   test('it picks a number of items using --number option', async () => {
-    const number = faker.random.number({ min: 2, max: items.length });
+    const number = faker.datatype.number({ min: 2, max: items.length });
     const result = await executeCli(`pick ${items.join(' ')} --number ${number}`);
     const chosenItems = result.split(' ');
 

@@ -45,16 +45,16 @@
   ],
   "dependencies": {
     "esm": "^3.2.25",
-    "yargs": "^15.4.1"
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.5",
-    "@types/yargs": "^15.0.5",
-    "eslint": "^7.5.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "faker": "^4.1.0",
-    "jest": "^26.1.0",
+    "@types/jest": "^26.0.23",
+    "@types/yargs": "^16.0.1",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "faker": "^5.5.3",
+    "jest": "^26.6.3",
     "jest-esm-transformer": "^1.0.0",
     "jest-extended": "^0.11.5",
     "node-run-cmd": "^1.0.1"
