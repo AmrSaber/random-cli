@@ -25,7 +25,7 @@ describe('String Command Unit Test', () => {
   });
 
   test('length', async () => {
-    const length = faker.random.number({ min: 5, max: 25 });
+    const length = faker.datatype.number({ min: 5, max: 25 });
     const result = await getArray(length);
     expect(result).toHaveLength(length);
   });
@@ -36,13 +36,13 @@ describe('String Command Unit Test', () => {
   });
 
   test('override array start with --start', async () => {
-    const start = faker.random.number({ min: 5, max: 10 });
+    const start = faker.datatype.number({ min: 5, max: 10 });
     const array = await getArray(`--start ${start}`);
     assertArrayElements({ array, start });
   });
 
   test('override array end with --end', async () => {
-    const end = faker.random.number({ min: 5, max: 10 });
+    const end = faker.datatype.number({ min: 5, max: 10 });
     const array = await getArray(`--end ${end}`);
     expect(array.length).toEqual(end);
   });
@@ -54,7 +54,7 @@ describe('String Command Unit Test', () => {
   });
 
   test('numbers are 0-padded with --pad option', async () => {
-    const length = faker.random.number({ min: 5, max: 100 });
+    const length = faker.datatype.number({ min: 5, max: 100 });
     const result = await executeCli(`array ${length} --pad`);
     assertArrayElements({ array: result.split(' ').map(Number), start: 1 });
     result.split(' ').forEach(number => expect(number).toHaveLength(String(length).length));

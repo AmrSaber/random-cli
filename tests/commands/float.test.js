@@ -9,7 +9,7 @@ describe('Float Command Unit Test', () => {
   });
 
   test('it changes precision using --precision option', async () => {
-    const precision = faker.random.number({ min: 5, max: 15 });
+    const precision = faker.datatype.number({ min: 5, max: 15 });
     const result = await executeCli(`float -p ${precision}`);
     expect(result).toMatch(/0(\.[0-9]*[1-9])?$/);
     expect(result.length).toBeLessThanOrEqual(precision + 2); // The +2 is for the characters "0."

@@ -26,7 +26,7 @@ describe('String Command Unit Test', () => {
   });
 
   test('length', async () => {
-    const length = faker.random.number({ min: 5, max: 25 });
+    const length = faker.datatype.number({ min: 5, max: 25 });
     const result = await executeCli(`string -l ${length}`);
 
     expect(result).toBeString();

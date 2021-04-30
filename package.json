@@ -1,26 +1,7 @@
 {
   "name": "random-generator-cli",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "CLI tool that generates and outputs random string of choice",
-  "main": "src/cli.js",
-  "author": {
-    "name": "Amr Saber",
-    "email": "Amr.M.Saber.mail@gmail.com"
-  },
-  "repository": "https://github.com/AmrSaber/random-cli",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "lint": "eslint src/ tests/",
-    "bump:major": "npm version major --no-git-tag-version",
-    "bump:minor": "npm version minor --no-git-tag-version",
-    "bump:patch": "npm version patch --no-git-tag-version",
-    "postversion": "git add -- package.json package-lock.json && git commit -m \":arrow_up: Bump version to $npm_package_version\""
-  },
   "keywords": [
     "cli",
     "random",
@@ -43,35 +24,50 @@
     "random-generator",
     "generator"
   ],
+  "repository": "https://github.com/AmrSaber/random-cli",
+  "license": "MIT",
+  "author": {
+    "name": "Amr Saber",
+    "email": "Amr.M.Saber.mail@gmail.com"
+  },
+  "main": "src/cli.js",
+  "bin": {
+    "random": "./src/cli.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/ tests/"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ],
+    "testEnvironment": "node",
+    "transform": {
+      ".js": "jest-esm-transformer"
+    }
+  },
   "dependencies": {
     "esm": "^3.2.25",
-    "yargs": "^15.4.1"
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.5",
-    "@types/yargs": "^15.0.5",
-    "eslint": "^7.5.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "faker": "^4.1.0",
-    "jest": "^26.1.0",
+    "@types/jest": "^26.0.23",
+    "@types/yargs": "^16.0.1",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "faker": "^5.5.3",
+    "jest": "^26.6.3",
     "jest-esm-transformer": "^1.0.0",
     "jest-extended": "^0.11.5",
     "node-run-cmd": "^1.0.1"
   },
-  "bin": {
-    "random": "./src/cli.js"
-  },
   "engines": {
     "node": ">=8.2.1"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "setupFilesAfterEnv": [
-      "jest-extended"
-    ],
-    "transform": {
-      ".js": "jest-esm-transformer"
-    }
+  "publishConfig": {
+    "access": "public"
   }
 }
